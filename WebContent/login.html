@@ -1,0 +1,136 @@
+<html>
+<head>
+<title>Login|DMT</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+html,body,h1,h2,h3,h4,h5,h6,label{
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
+body {font-family: Arial, Helvetica, sans-serif;
+background-color: #DDDDDD;}
+form {border: 5px solid #f1f1f1;}
+
+input[type=text], input[type=password], input[type=tel]{
+    width: 15%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+     border: none;
+  background: #f1f1f1;
+    box-sizing: border-box;
+}
+.outer {
+    width: 960px;
+    color: white;
+    background-color:#3c4a59;
+    border: 2px solid darkblue;
+    padding: 5px;
+ }
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 8%;
+}
+
+
+button:hover {
+    opacity: 0.8;
+}
+
+.cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+}
+.cancelbtn1 {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #4CAF50;
+}
+
+
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+}
+
+img.avatar {
+    width: 10%;
+    border-radius: 50%;
+}
+
+.container {
+    padding: 20px;
+}
+
+span.psw {
+    float: right;
+    padding-top: 16px;
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+    span.psw {
+       display: block;
+       float: none;
+    }
+    .cancelbtn {
+       width: 100%;
+    }
+}
+</style>
+<SCRIPT type="text/javascript">
+window.history.forward();
+function noBack() { window.history.forward(); }
+</SCRIPT>
+ <script type="text/javascript">
+        function blockSpecialChar(e) {
+            var k = e.keyCode;
+            if(k >= 48 && k <= 57)
+            return ( (k >= 48 && k <= 57) );
+            else
+            	{
+            	alert("Enter Only Numeric type values!");
+            	return ( (k >= 48 && k <= 57) );
+            	}
+        }
+    </script>
+</head>
+<body onload="noBack();" 
+	onpageshow="if (event.persisted) noBack();" onunload="">
+<center>
+<h2>Login</h2>
+<h4>Defect Management Tool</h4>
+</center>
+<center>
+<div class="outer">
+<form action="login.jsp" method="post">
+  <div class="imgcontainer">
+    <img src="img_avatar2.png" alt="Avatar" class="avatar">
+  </div>
+<center>
+  <div class="container">
+    <label for="uname"><b>User Id<font color="red">*</font></b></label>
+    &nbsp;&nbsp;<input type="tel" placeholder="Enter Username" name="user_id" minlength="7" maxlength="7" required onkeypress="return blockSpecialChar(event)"><br>
+
+    <label for="psw"><b>Password<font color="red">*</font></b></label>
+    <input type="password" placeholder="Enter Password"  maxlength="15" name="password" required><br>
+        
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="submit" class="cancelbtn1">Login</button>
+    <button type="button" class="cancelbtn">Clear</button><br>
+	</center>
+  </div>
+
+  <div class="container" style="background-color:#f1f1f1">
+    <span >Contact Admin<h6>Email id:&nbsp;&nbsp;admin.it@gmail.com</h6><h6>Helpdesk Number:&nbsp;&nbsp;1800-180-9090</h6></span>
+  </div>
+</form>
+</div>
+</center>
+</body>
+</html>
