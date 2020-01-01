@@ -12,48 +12,47 @@
 </head>
 <body>
 <%
-String di=request.getParameter("defect_id");
-String dbt=request.getParameter("Defected_by");
-String dt=request.getParameter("Defect_type"); 
-String dd=request.getParameter("Defect_date");
-String st=request.getParameter("status");
-String env=request.getParameter("environment");
-String at=request.getParameter("assigned_to");
-String svr=request.getParameter("severity");
-String pr=request.getParameter("priority");
-String tp=request.getParameter("test_phase");
-String def=request.getParameter("Defect_description");
+	String di = request.getParameter("defect_id");
+	String dbt = request.getParameter("Defected_by");
+	String dt = request.getParameter("Defect_type");
+	String dd = request.getParameter("Defect_date");
+	String st = request.getParameter("status");
+	String env = request.getParameter("environment");
+	String at = request.getParameter("assigned_to");
+	String svr = request.getParameter("severity");
+	String pr = request.getParameter("priority");
+	String tp = request.getParameter("test_phase");
+	String def = request.getParameter("Defect_description");
 
-java.text.SimpleDateFormat formatter = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+	java.text.SimpleDateFormat formatter = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
-java.util.Date currentTime = new java.util.Date();//Get the current system time
+	java.util.Date currentTime = new java.util.Date();//Get the current system time
 
-String str_date1 = formatter.format(currentTime); //The date and time format 
-String str_date2 = currentTime.toString(); //The Date date and time into a string 
+	String str_date1 = formatter.format(currentTime); //The date and time format 
+	String str_date2 = currentTime.toString(); //The Date date and time into a string 
 
-try
-{
-	Class.forName("com.mysql.jdbc.Driver");  // MySQL database connection
-    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/dmt", "root", "");
-/* Passing argument through the question mark */ 
-PreparedStatement ps=con.prepareStatement("insert into create_defect values(?,?,?,?,?,?,?,?,?,?,?,?)") ;
-ps.setString(1,di);
-ps.setString(2,dbt);
-ps.setString(3,dt);
-ps.setString(4,dd);
-ps.setString(5,st);
-ps.setString(6,env);
-ps.setString(7,at);
-ps.setString(8,svr);
-ps.setString(9,pr);
-ps.setString(10,tp);
-ps.setString(11,def);
-ps.setString(12,str_date2);
-int i=ps.executeUpdate();
-/*Set the Update query command */
-if(i!=0) 
-{ 
-	%>
+	try {
+		Class.forName("com.mysql.jdbc.Driver"); // MySQL database connection
+		Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/dmt", "root", "");
+		/* Passing argument through the question mark */
+		PreparedStatement ps = con
+				.prepareStatement("insert into create_defect values(?,?,?,?,?,?,?,?,?,?,?,?)");
+		ps.setString(1, di);
+		ps.setString(2, dbt);
+		ps.setString(3, dt);
+		ps.setString(4, dd);
+		ps.setString(5, st);
+		ps.setString(6, env);
+		ps.setString(7, at);
+		ps.setString(8, svr);
+		ps.setString(9, pr);
+		ps.setString(10, tp);
+		ps.setString(11, def);
+		ps.setString(12, str_date2);
+		int i = ps.executeUpdate();
+		/*Set the Update query command */
+		if (i != 0) {
+%>
 					<script>window.alert("Defect Created Successfully!");
 					window.location.href = "userdashboard.jsp";
 					</script>
